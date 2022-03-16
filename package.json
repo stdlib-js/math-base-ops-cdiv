@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/math-base-ops-cdiv",
-  "version": "0.0.6",
+  "version": "0.0.0",
   "description": "Divide two complex numbers.",
   "license": "Apache-2.0",
   "author": {
