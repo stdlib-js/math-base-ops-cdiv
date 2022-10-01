@@ -30,30 +30,14 @@ limitations under the License.
 
 <!-- /.intro -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/math-base-ops-cdiv
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var cdiv = require( '@stdlib/math-base-ops-cdiv' );
+import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@esm/index.mjs';
 ```
 
 #### cdiv( \[out,] re1, im1, re2, im2 )
@@ -68,7 +52,7 @@ var v = cdiv( -13.0, -1.0, -2.0, 1.0 );
 By default, the function returns real and imaginary components as a two-element `array`. To avoid unnecessary memory allocation, the function supports providing an output (destination) object.
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
 
 var out = new Float64Array( 2 );
 
@@ -89,13 +73,18 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var Complex128 = require( '@stdlib/complex-float64' );
-var randu = require( '@stdlib/random-base-randu' );
-var round = require( '@stdlib/math-base-special-round' );
-var real = require( '@stdlib/complex-real' );
-var imag = require( '@stdlib/complex-imag' );
-var cdiv = require( '@stdlib/math-base-ops-cdiv' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="module">
+
+import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
+import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
+import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
+import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-real@esm/index.mjs';
+import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@esm/index.mjs';
+import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@esm/index.mjs';
 
 var re;
 var im;
@@ -119,6 +108,10 @@ for ( i = 0; i < 100; i++ ) {
 
     console.log( '(%s) / (%s) = %s', z1.toString(), z2.toString(), z3.toString() );
 }
+
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -165,7 +158,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -235,11 +228,11 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd
+[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd/tree/esm
 
-[@stdlib/math/base/ops/cmul]: https://github.com/stdlib-js/math-base-ops-cmul
+[@stdlib/math/base/ops/cmul]: https://github.com/stdlib-js/math-base-ops-cmul/tree/esm
 
-[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub
+[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub/tree/esm
 
 <!-- </related-links> -->
 
