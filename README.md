@@ -18,11 +18,11 @@ limitations under the License.
 
 -->
 
-# divide
+# cdiv
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
-> Divide two complex numbers.
+> Divide two double-precision complex floating-point numbers.
 
 <section class="intro">
 
@@ -30,61 +30,52 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-ops-cdiv
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
+```javascript
+var cdiv = require( '@stdlib/math-base-ops-cdiv' );
+```
+
+#### cdiv( z1, z2 )
+
+Divides two double-precision complex floating-point numbers.
 
 ```javascript
-cdiv = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@umd/browser.js' )
-```
+var Complex128 = require( '@stdlib/complex-float64' );
+var real = require( '@stdlib/complex-real' );
+var imag = require( '@stdlib/complex-imag' );
 
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+var z1 = new Complex128( -13.0, -1.0 );
+var z2 = new Complex128( -2.0, 1.0 );
 
-```javascript
-var cdiv = require( 'path/to/vendor/umd/math-base-ops-cdiv/index.js' )
-```
+var v = cdiv( z1, z2 );
+// returns <Complex128>
 
-To include the bundle in a webpage,
+var re = real( v );
+// returns 5.0
 
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.cdiv;
-})();
-</script>
-```
-
-#### cdiv( \[out,] re1, im1, re2, im2 )
-
-Divides two `complex` numbers where each `complex` number is comprised of a **real** component `re` and an **imaginary** component `im`.
-
-```javascript
-var v = cdiv( -13.0, -1.0, -2.0, 1.0 );
-// returns [ 5.0, 3.0 ]
-```
-
-By default, the function returns real and imaginary components as a two-element `array`. To avoid unnecessary memory allocation, the function supports providing an output (destination) object.
-
-```javascript
-var Float64Array = require( '@stdlib/array-float64' );
-
-var out = new Float64Array( 2 );
-
-var v = cdiv( out, -13.0, -1.0, -2.0, 1.0 );
-// returns <Float64Array>[ 5.0, 3.0 ]
-
-var bool = ( v === out );
-// returns true
+var im = imag( v );
+// returns 3.0
 ```
 
 </section>
@@ -97,46 +88,29 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-real@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Complex128 = require( '@stdlib/complex-float64' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var real = require( '@stdlib/complex-real' );
+var imag = require( '@stdlib/complex-imag' );
+var cdiv = require( '@stdlib/math-base-ops-cdiv' );
 
-var re;
-var im;
+function randomComplex() {
+    var re = discreteUniform( -50, 50 );
+    var im = discreteUniform( -50, 50 );
+    return new Complex128( re, im );
+}
+
 var z1;
 var z2;
 var z3;
-var o;
 var i;
-
 for ( i = 0; i < 100; i++ ) {
-    re = round( randu()*100.0 ) - 50.0;
-    im = round( randu()*100.0 ) - 50.0;
-    z1 = new Complex128( re, im );
-
-    re = round( randu()*100.0 ) - 50.0;
-    im = round( randu()*100.0 ) - 50.0;
-    z2 = new Complex128( re, im );
-
-    o = cdiv( real(z1), imag(z1), real(z2), imag(z2) );
-    z3 = new Complex128( o[ 0 ], o[ 1 ] );
-
+    z1 = randomComplex();
+    z2 = randomComplex();
+    z3 = cdiv( z1, z2 );
     console.log( '(%s) / (%s) = %s', z1.toString(), z2.toString(), z3.toString() );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -253,11 +227,11 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd/tree/umd
+[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd
 
-[@stdlib/math/base/ops/cmul]: https://github.com/stdlib-js/math-base-ops-cmul/tree/umd
+[@stdlib/math/base/ops/cmul]: https://github.com/stdlib-js/math-base-ops-cmul
 
-[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub/tree/umd
+[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub
 
 <!-- </related-links> -->
 
