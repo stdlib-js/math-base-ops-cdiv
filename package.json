@@ -14,6 +14,7 @@
     }
   ],
   "main": "./lib",
+  "gypfile": false,
   "directories": {
     "benchmark": "./benchmark",
     "doc": "./docs",
@@ -40,12 +41,15 @@
     "@stdlib/complex-float64": "^0.0.8",
     "@stdlib/complex-imag": "^0.0.7",
     "@stdlib/complex-real": "^0.0.7",
+    "@stdlib/complex-reim": "^0.0.6",
     "@stdlib/constants-float64-eps": "^0.0.8",
     "@stdlib/constants-float64-max": "^0.0.8",
     "@stdlib/constants-float64-smallest-normal": "^0.0.8",
+    "@stdlib/math-base-napi-binary": "^0.0.8",
     "@stdlib/math-base-special-abs": "^0.0.6",
     "@stdlib/math-base-special-max": "^0.0.7",
-    "@stdlib/types": "^0.0.14"
+    "@stdlib/types": "^0.0.14",
+    "@stdlib/utils-library-manifest": "^0.0.8"
   },
   "devDependencies": {
     "@stdlib/assert-is-complex128": "^0.0.7",
@@ -57,6 +61,7 @@
     "@stdlib/number-float64-base-to-binary-string": "^0.0.7",
     "@stdlib/random-base-discrete-uniform": "^0.0.6",
     "@stdlib/random-base-uniform": "^0.0.6",
+    "@stdlib/utils-try-require": "^0.0.7",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
     "istanbul": "^0.4.1",
     "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
