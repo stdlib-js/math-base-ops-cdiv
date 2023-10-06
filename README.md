@@ -41,38 +41,30 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-ops-cdiv
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-cdiv = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var cdiv = require( 'path/to/vendor/umd/math-base-ops-cdiv/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.cdiv;
-})();
-</script>
+var cdiv = require( '@stdlib/math-base-ops-cdiv' );
 ```
 
 #### cdiv( z1, z2 )
@@ -107,17 +99,12 @@ var im = imag( v );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-real@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Complex128 = require( '@stdlib/complex-float64' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var real = require( '@stdlib/complex-real' );
+var imag = require( '@stdlib/complex-imag' );
+var cdiv = require( '@stdlib/math-base-ops-cdiv' );
 
 function randomComplex() {
     var re = discreteUniform( -50, 50 );
@@ -135,11 +122,6 @@ for ( i = 0; i < 100; i++ ) {
     z3 = cdiv( z1, z2 );
     console.log( '(%s) / (%s) = %s', z1.toString(), z2.toString(), z3.toString() );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -148,7 +130,116 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/ops/cdiv.h"
+```
+
+#### stdlib_base_cdiv( z1, z2 )
+
+Divides two double-precision complex floating-point numbers.
+
+```c
+#include "stdlib/complex/float64.h"
+#include "stdlib/complex/real.h"
+#include "stdlib/complex/imag.h"
+
+stdlib_complex128_t z1 = stdlib_complex128( -13.0, -1.0 );
+stdlib_complex128_t z2 = stdlib_complex128( -2.0, 1.0 );
+
+stdlib_complex128_t out = stdlib_base_cdiv( z1, z2 );
+
+double re = stdlib_real( out );
+// returns 5.0
+
+double im = stdlib_imag( out );
+// returns 3.0
+```
+
+The function accepts the following arguments:
+
+-   **z1**: `[in] stdlib_complex128_t` input value.
+-   **z2**: `[in] stdlib_complex128_t` input value.
+
+```c
+stdlib_complex128_t stdlib_base_cdiv( const stdlib_complex128_t z1, const stdlib_complex128_t z2 );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/ops/cdiv.h"
+#include "stdlib/complex/float64.h"
+#include "stdlib/complex/reim.h"
+#include <stdio.h>
+
+int main() {
+    const stdlib_complex128_t x[] = {
+        stdlib_complex128( 3.14, 1.5 ),
+        stdlib_complex128( -3.14, 1.5 ),
+        stdlib_complex128( 0.0, -0.0 ),
+        stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+    };
+
+    stdlib_complex128_t v;
+    stdlib_complex128_t y;
+    double re;
+    double im;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        v = x[ i ];
+        stdlib_reim( v, &re, &im );
+        printf( "z = %lf + %lfi\n", re, im );
+
+        y = stdlib_base_cdiv( v, v );
+        stdlib_reim( y, &re, &im );
+        printf( "cdiv(z, z) = %lf + %lfi\n", re, im );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 * * *
 
@@ -260,11 +351,11 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd/tree/umd
+[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd
 
-[@stdlib/math/base/ops/cmul]: https://github.com/stdlib-js/math-base-ops-cmul/tree/umd
+[@stdlib/math/base/ops/cmul]: https://github.com/stdlib-js/math-base-ops-cmul
 
-[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub/tree/umd
+[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub
 
 <!-- </related-links> -->
 
