@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-07-16)
+## Unreleased (2024-07-17)
 
 <section class="bug-fixes">
 
@@ -23,6 +23,8 @@
 
 <details>
 
+-   [`32bbcb3`](https://github.com/stdlib-js/stdlib/commit/32bbcb3b3dae1f028fd18166ee7875a93d44d0ee) - **refactor:** update paths _(by Athan Reines)_
+-   [`ed9c0a5`](https://github.com/stdlib-js/stdlib/commit/ed9c0a5e55ff09af3dd6af8c38615480e2c1828e) - **refactor:** update paths _(by Athan Reines)_
 -   [`8908bda`](https://github.com/stdlib-js/stdlib/commit/8908bda11588f80edf375466ae9e84a3d70cf7d3) - **refactor:** update paths _(by Athan Reines)_
 -   [`53cf211`](https://github.com/stdlib-js/stdlib/commit/53cf211f341dc87077710b30ac41a0938e83b773) - **fix:** use correct assignment and adjust test tolerances _(by Athan Reines)_
 -   [`44aa02f`](https://github.com/stdlib-js/stdlib/commit/44aa02fd4339364a4717ccfac6fc7c1b1ce616bc) - **refactor:** ensure variables are static _(by Athan Reines)_
