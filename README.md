@@ -48,6 +48,11 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/math-base-ops-cdiv/tags). For example,
+
+```javascript
 import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@v0.2.2-esm/index.mjs';
 ```
 
@@ -93,7 +98,7 @@ import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ct
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@esm/index.mjs';
 import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-real@esm/index.mjs';
 import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-imag@esm/index.mjs';
-import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@v0.2.2-esm/index.mjs';
+import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@esm/index.mjs';
 
 function randomComplex() {
     var re = discreteUniform( -50, 50 );
