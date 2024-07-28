@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@deno/mod.js';
+import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@v0.2.2-deno/mod.js';
 ```
 
 #### cdiv( z1, z2 )
@@ -88,7 +88,7 @@ import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ct
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
 import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-real@deno/mod.js';
 import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-imag@deno/mod.js';
-import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@deno/mod.js';
+import cdiv from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cdiv@v0.2.2-deno/mod.js';
 
 function randomComplex() {
     var re = discreteUniform( -50, 50 );
